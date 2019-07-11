@@ -4,8 +4,13 @@ module.exports = function countSameElements(collection) {
   let array=[];
   let object={};
   collection.filter((num)=>{
-    
-    object[num]=(object[num]+1)||1;
+    if(num.length>1){
+      let number=parseInt(num.replace(/[^0-9]/ig,""));
+      num=num.substring(0,1);
+      object[num] = object[num] ? object[num] +number : number;
+    }else{
+      object[num]=(object[num]+1)||1;
+    }
   });
   let x=Object.keys(object);
   x.filter((num)=>{
@@ -15,5 +20,5 @@ module.exports = function countSameElements(collection) {
       }
       array.push(obj);
   });
-  return '实现练习要求，并改写该行代码。';
+  return array;
 }
