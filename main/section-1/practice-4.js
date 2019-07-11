@@ -1,5 +1,14 @@
 'use strict';
 
 module.exports = function collectSameElements(collectionA, objectB) {
-  return '实现练习要求，并改写该行代码。';
+  let subcollectionA=collectionA.map((num)=>{
+    return num.key;
+ });
+  let subcollectionB=objectB.value;
+  let collection=subcollectionA.filter((num)=>{
+    
+    return subcollectionB.includes(num);
+ });
+
+  return collection;
 }
